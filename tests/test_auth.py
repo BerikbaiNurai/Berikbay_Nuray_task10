@@ -7,7 +7,6 @@ def unique_user():
     return f"user_{uuid.uuid4().hex[:6]}"
 
 def test_register_and_login(client: TestClient, unique_user):
-    # Регистрация
     resp = client.post(
         "/register",
         json={"username": unique_user, "password": "TestPass!1"}
@@ -17,7 +16,6 @@ def test_register_and_login(client: TestClient, unique_user):
     assert data["username"] == unique_user
     assert "password" not in data
 
-    # Логин (form data, не JSON)
     resp2 = client.post(
         "/login",
         data={"username": unique_user, "password": "TestPass!1"}

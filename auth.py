@@ -9,7 +9,7 @@ from sqlmodel import Session, select
 from database import engine
 from models import User
 
-SECRET_KEY = "super-secret-key"  # замените на свой
+SECRET_KEY = "super-secret-key"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
